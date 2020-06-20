@@ -1,0 +1,5 @@
+COLUMN TABLE "MyFirstHANAProject.dbmdl_firstdbmodule.data::dims" 
+(
+   "ID" INTEGER, 
+   "TEAM" VARCHAR(50)
+)

@@ -1,0 +1,6 @@
+COLUMN TABLE "MyFirstHANAProject.dbmdl_firstdbmodule.data::facts" 
+(
+   "ID" INTEGER, 
+   "SEASON" VARCHAR(4),
+   "DECADE" VARCHAR(5)
+)

@@ -1,0 +1,20 @@
+ID: MyFirstHANAProject
+_schema-version: '2.1'
+description: My First HANA Project
+version: 0.0.1
+
+modules:
+ - name: dbmdl_firstdbmodule
+   type: hdb
+   path: dbmdl_firstdbmodule
+   requires:
+    - name: hdi_dbmdl_firstdbmodule
+
+resources:
+ - name: hdi_dbmdl_firstdbmodule
+   parameters:
+      config:
+         schema: sch_firstschema
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container

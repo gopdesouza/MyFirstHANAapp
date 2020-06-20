@@ -1,0 +1,18 @@
+namespace MyFirstHANAProject.dbmdl_firstdbmodule;
+
+/*@@layout{"layoutInfo":{"x":-128.6826171875,"y":-241}}*/
+context cds_myfirst {
+};
+
+/*@@layout{"layoutInfo":{"x":-168,"y":-28.5}}*/
+entity Entity_1 {
+    TeamID : String(30);
+    Name   : String(50);
+    year   : String(10);
+};
+
+/*@@layout{"layoutInfo":{"x":250,"y":-17.5}}*/
+entity Entity_2 {
+    trophy : String(10);
+    teamid : String(10);
+};

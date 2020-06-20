@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="MyFirstHANAProject.dbmdl_firstdbmodule.views::union" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="union"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="MyFirstHANAProject.dbmdl_firstdbmodule.data::facts">
+    <resourceUri>MyFirstHANAProject.dbmdl_firstdbmodule.data::facts</resourceUri>
+  </DataSource>
+  <DataSource id="MyFirstHANAProject.dbmdl_firstdbmodule.data::more_facts">
+    <resourceUri>MyFirstHANAProject.dbmdl_firstdbmodule.data::more_facts</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Facts">
+    <viewAttributes>
+      <viewAttribute id="ID"/>
+      <viewAttribute id="SEASON"/>
+      <viewAttribute id="DECADE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="MyFirstHANAProject.dbmdl_firstdbmodule.data::facts"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="More_facts">
+    <viewAttributes>
+      <viewAttribute id="ID"/>
+      <viewAttribute id="SEASON"/>
+      <viewAttribute id="DECADE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="MyFirstHANAProject.dbmdl_firstdbmodule.data::more_facts"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="Union">
+    <viewAttributes>
+      <viewAttribute id="ID"/>
+      <viewAttribute id="SEASON"/>
+      <viewAttribute id="DECADE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Facts">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEASON" source="SEASON"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DECADE" source="DECADE"/>
+    </input>
+    <input node="More_facts">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEASON" source="SEASON"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DECADE" source="DECADE"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Union">
+  <attributes>
+    <attribute id="ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="Union" columnName="ID"/>
+    </attribute>
+    <attribute id="SEASON" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEASON"/>
+      <keyMapping columnObjectName="Union" columnName="SEASON"/>
+    </attribute>
+    <attribute id="DECADE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DECADE"/>
+      <keyMapping columnObjectName="Union" columnName="DECADE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Facts" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-60" y="371"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="More_facts" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="169" y="381"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Union" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="43" y="187"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
